@@ -1,0 +1,25 @@
+input_data = {
+    "Age": 21,
+    "Gender": "Female",
+    "Ethnicity": "Asian",
+    "ParentEducation": "Graduate",
+    "FamilyIncome": "30–60K",   # ✅ MUST MATCH
+    "Major": "CSE",
+    "YearOfStudy": "Senior",
+    "PreviousGPA": 7.8,
+    "EntranceExamScore": 82,
+    "AttendanceRate": 90,
+    "Absences": 5,
+    "StudyHoursPerWeek": 15,
+    "AssignmentScore": 85,
+    "MidtermScore": 78,
+    "ProjectScore": 88,
+    "ParticipationScore": 80,
+    "TutoringSessionsAttended": 2,
+    "PartTimeJob": "No",
+    "FinancialAid": "Yes",
+    "OnCampusHousing": "Yes",
+    "LateSubmissions": 1,
+    "LibraryVisits": 10,
+    "OnlinePlatformLogins": 50
+}

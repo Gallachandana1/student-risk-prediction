@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Risk Prediction</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6f9;
+    }
+    .card {
+      width: 400px;
+      background: white;
+      padding: 20px;
+      margin: 100px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .safe { color: green; font-weight: bold; }
+    .risk { color: red; font-weight: bold; }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h2>Student Risk Prediction</h2>
+
+    <input id="age" placeholder="Age">
+    <input id="gpa" placeholder="Previous GPA">
+    <input id="attendance" placeholder="Attendance Rate">
+    <input id="studyhours" placeholder="Study Hours per Week">
+
+
+    <button onclick="predict()">Predict</button>
+
+    <p id="result"></p>
+  </div>
+
+<script>
+async function predict() {
+  const age = document.getElementById("age").value;
+  const gpa = document.getElementById("gpa").value;
+
+  const response = await fetch("http://127.0.0.1:5000/predict", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      Age: age,
+      PreviousGPA: gpa
+    })
+  });
+
+  const data = await response.json();
+  const result = document.getElementById("result");
+
+  if (data.prediction === "Yes") {
+    result.innerHTML = "🔴 Student is At Risk";
+    result.className = "risk";
+  } else {
+    result.innerHTML = "🟢 Student is Safe";
+    result.className = "safe";
+  }
+}
+body:JSON.stringify({
+      Age: age,
+      PreviousGPA: gpa,
+      AttendanceRate: attendance,
+      StudyHoursPerWeek: studyhours})
+      result.innerHTML += '<br> Risk Probability: ${data.risk_percentage}%';
+</script>
+</body>
+</html>
